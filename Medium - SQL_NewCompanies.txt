@@ -1,0 +1,8 @@
+SELECT C.company_code, C.founder, 
+ COUNT(DISTINCT E.lead_manager_code), 
+ COUNT(DISTINCT E.senior_manager_code), 
+ COUNT(DISTINCT E.manager_code), COUNT(DISTINCT E.employee_code)
+FROM  Company AS C, Employee AS E
+WHERE C.company_code = E.company_code 
+GROUP BY C.founder, C.company_code
+ORDER BY C.company_code
